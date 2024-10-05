@@ -27,10 +27,12 @@ const generateTodo = (data) => {
 
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
+  newTodoValidator._toggleButtonState();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
   closeModal(addTodoPopup);
+  newTodoValidator._toggleButtonState();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
