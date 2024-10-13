@@ -8,18 +8,32 @@ class TodoCounter {
     }
 
 
-    updateCompleted = (increment) => {
-        this._completed += increment ? 1 : -1;
-        this._updateText();
-    };
+    updateCompleted(increment) {
+        if (increment) {
+            this._completed += 1;
+        } else {
+            this._completed -= 1;
+        }
 
-    updateTotal = (increment) => {
-        this._total += increment ? 1 : -1;
         this._updateText();
-    };
+
+    }
+
+    updateTotal(increment) {
+
+        if (increment) {
+            this._total += 1;
+        } else {
+            this._total -= 1;
+        }
+
+        this._updateText();
+
+    }
+
 
     _updateText() {
-        if (this._completed <= 0) {
+        if (this._completed < 0) {
             this._completed = 0;
         }
         this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;

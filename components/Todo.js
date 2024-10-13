@@ -28,21 +28,22 @@ class Todo {
 
     _setEventListeners() {
         this._todoCheckboxEl.addEventListener("change", () => {
-            this._completed = !this._completed;
-
             if (this._todoCheckboxEl.checked) {
                 this._handleCheck(true);
             } else {
                 this._handleCheck(false);
             }
 
+            this._completed = !this._completed;
+
         });
 
         this._todoDeleteBtn.addEventListener("click", () => {
-            if (!this._todoCheckboxEl.checked) {
+            if (this._todoCheckboxEl.checked) {
                 this._handleDelete(true);
             } else {
-                this._handleDelete(false);
+                this._handleDelete(true);
+                this._handleCheck(true);
             }
 
             this._todoElement.remove();
