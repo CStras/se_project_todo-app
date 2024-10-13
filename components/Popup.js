@@ -1,6 +1,7 @@
 class Popup {
     constructor({ popupSelector }) {
         this._popupSelector = document.querySelector(popupSelector);
+        // could I get more clarification on the issue with using this._popupSelector?
         this._popupCloseBtn = this._popupSelector.querySelector(".popup__close");
     }
 
